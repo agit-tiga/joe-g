@@ -1,0 +1,133 @@
+/* ============================================================
+   PROCESS — Vertikale Zeitleiste
+   ============================================================ */
+.process {
+  background-color: transparent;
+  background-image:
+    linear-gradient(to bottom,
+      transparent 0%,
+      rgba(14, 10, 6, 0.18) 20%,
+      rgba(14, 10, 6, 0.18) 80%,
+      transparent 100%
+    ),
+    /* Verbindungsecho zu Instagram — Glow oben Mitte */
+    radial-gradient(ellipse 60% 30% at 50% 3%, rgba(196, 143, 50, 0.06) 0%, transparent 65%),
+    /* Amber-Glow rechts oben — strukturierte Wärme */
+    radial-gradient(ellipse 55% 45% at 82% 25%, rgba(196, 143, 50, 0.08) 0%, transparent 65%),
+    /* Subtiler Gold-Hauch links unten */
+    radial-gradient(ellipse 55% 60% at 12% 75%, rgba(196, 143, 50, 0.06) 0%, transparent 60%);
+}
+
+.process__timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 4rem auto 0;
+}
+
+/* Mittelachse */
+.process__timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(196, 163, 90, 0.28) 6%,
+    rgba(196, 163, 90, 0.28) 94%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.process__row {
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr;
+  align-items: center;
+  gap: 0 2.5rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.process__row:last-child { margin-bottom: 0; }
+
+.process__col { min-height: 1px; }
+
+/* Node — Nummer + Dekor auf der Linie */
+.process__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  position: relative;
+  z-index: 1;
+  padding: 0.75rem 0;
+}
+
+.process__num {
+  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  user-select: none;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--gold-border);
+  border-radius: 50%;
+  background: transparent;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.process__row:hover .process__num {
+  border-color: var(--gold);
+  background: rgba(196, 163, 90, 0.08);
+}
+
+/* Karten */
+.process__card {
+  background: var(--bg-card);
+  border: 1px solid rgba(196, 163, 90, 0.1);
+  border-left: 2px solid rgba(196, 163, 90, 0.32);
+  border-radius: 14px;
+  padding: clamp(1.4rem, 2.5vw, 1.9rem);
+  transition: background 0.22s, border-color 0.22s;
+}
+
+.process__card--left {
+  border-left: 1px solid rgba(196, 163, 90, 0.1);
+  border-right: 2px solid rgba(196, 163, 90, 0.32);
+  text-align: right;
+}
+
+.process__card:hover {
+  background: rgba(20, 20, 20, 1);
+  border-left-color: rgba(196, 163, 90, 0.55);
+}
+
+.process__card--left:hover {
+  border-left-color: rgba(196, 163, 90, 0.1);
+  border-right-color: rgba(196, 163, 90, 0.55);
+}
+
+.process__card h3 {
+  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.process__card p {
+  font-size: clamp(0.875rem, 1.1vw, 0.938rem);
+  color: var(--text-muted);
+  line-height: 1.82;
+}

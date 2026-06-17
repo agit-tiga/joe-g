@@ -1,0 +1,55 @@
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+html.custom-cursor-active,
+html.custom-cursor-active * { cursor: none; }
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+  transition:
+    width      var(--dur-fast) var(--ease-out),
+    height     var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    transform  var(--dur-fast) var(--ease-out);
+}
+
+.cursor-ring {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid rgba(201, 168, 64, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+  transition:
+    width        0.22s var(--ease-out),
+    height       0.22s var(--ease-out),
+    border-color var(--dur-mid) var(--ease-out);
+}
+
+.cursor-ring--hover {
+  width: 44px;
+  height: 44px;
+  border-color: var(--gold);
+}
+
+.cursor-dot--click {
+  transform: translate(-50%, -50%) scale(0.7);
+  background: var(--gold-light);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}

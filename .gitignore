@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+.vscode/
+
+# Entwicklungsumgebung (Claude Code)
+.claude/
+CLAUDE.md
+
+# Lokale Entwicklung
+test-results/
+
+# Nicht produktive Medien (Originalquellen, Referenzen, Rohdaten)
+photos/
+references/
+assets/images/tattoos/raw/

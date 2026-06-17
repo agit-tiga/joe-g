@@ -1,0 +1,79 @@
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background-color: transparent;
+  background-image:
+    /* Sanfter Eingang aus der FAQ-Sektion — beginnt transparent, wird solide */
+    linear-gradient(to bottom,
+      transparent 0%,
+      rgba(5, 4, 4, 0.75) 18%,
+      rgba(5, 4, 4, 0.96) 35%,
+      rgba(5, 4, 4, 0.96) 100%
+    );
+  border-top: 1px solid var(--border);
+  padding: 4rem 0 2.5rem;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.footer__logo {
+  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.footer__tagline {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.footer__address {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+.footer__social a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color var(--dur-fast);
+}
+
+.footer__social a:hover { color: var(--gold); }
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer__bottom p { font-size: 0.78rem; color: var(--text-faint); }
+
+.footer__links { display: flex; gap: 1.5rem; }
+
+.footer__links a {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  transition: color var(--dur-fast);
+}
+
+.footer__links a:hover { color: var(--text-muted); }

@@ -1,0 +1,259 @@
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    /* Stärkere lokale Glut im Hero — überlagert den globalen Atmosphere-Layer */
+    radial-gradient(ellipse 70% 60% at 50% 100%, rgba(201, 168, 64, 0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 15% 80%, rgba(201, 168, 64, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 45% at 85% 75%, rgba(201, 168, 64, 0.035) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(8rem, 14vw, 10.5rem) clamp(1.25rem, 5vw, 4rem) 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Split layout: Bild links, Text rechts */
+.hero__inner--split {
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 6rem);
+  padding-bottom: 4rem;
+}
+
+.hero__img-col {
+  flex: 0 0 46%;
+  max-width: 46%;
+}
+
+.hero__work-img {
+  width: 100%;
+  height: clamp(460px, 52vw, 680px);
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border-gold);
+  display: block;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.55);
+}
+
+.hero__inner--split .hero__content {
+  flex: 1;
+  text-align: left;
+  max-width: none;
+}
+
+.hero__content {
+  text-align: center;
+  max-width: 520px;
+}
+
+.hero__inner--split .hero__subtitle {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero__inner--split .hero__actions {
+  justify-content: flex-start;
+}
+
+.hero__smoke {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero__tiles {
+  display: flex;
+  gap: clamp(0.5rem, 1vw, 0.9rem);
+  align-items: flex-end;
+  width: 100%;
+}
+
+.hero__tile {
+  flex: 1;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-gold);
+  background: var(--bg-card);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Sizes decrease subtly from outside to center */
+.hero__tile--1,
+.hero__tile--5 {
+  height: clamp(300px, 34vw, 450px);
+}
+
+.hero__tile--2,
+.hero__tile--4 {
+  height: clamp(285px, 32vw, 430px);
+}
+
+.hero__tile--3 {
+  height: clamp(270px, 30vw, 410px);
+}
+
+.hero__name {
+  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.hero__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  background: linear-gradient(45deg, #f6e27a, #d4af37, #b8860b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero__title {
+  font-size: clamp(3.5rem, 7.5vw, 7rem);
+  font-weight: 700;
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+}
+
+.hero__subtitle {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.15); }
+}
+
+/* ============================================================
+   HERO ANIMATIONS
+   ============================================================ */
+.hero-slide-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition:
+    transform var(--dur-hero) var(--ease-out) var(--delay),
+    opacity 1100ms ease var(--delay);
+}
+
+.hero-slide-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition:
+    transform var(--dur-hero) var(--ease-out) var(--delay),
+    opacity 1100ms ease var(--delay);
+}
+
+.hero-fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    transform 800ms var(--ease-out) var(--delay),
+    opacity 700ms ease var(--delay);
+}
+
+.hero-animated .hero-slide-left,
+.hero-animated .hero-slide-right,
+.hero-animated .hero-fade-up {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal-up    { opacity: 0; transform: translateY(40px); }
+.reveal-left  { opacity: 0; transform: translateX(-44px); }
+.reveal-right { opacity: 0; transform: translateX(44px); }
+
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  transition:
+    opacity 800ms ease var(--delay, 0s),
+    transform 800ms var(--ease-out) var(--delay, 0s);
+}
+
+.revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}

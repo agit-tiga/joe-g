@@ -1,0 +1,289 @@
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 1000px)
+   ============================================================ */
+@media (max-width: 1000px) {
+  .about__years-badge {
+    left: -0.75rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 860px)
+   ============================================================ */
+@media (max-width: 860px) {
+  /* iOS Safari: background-attachment: fixed causes rendering artifacts */
+  body {
+    background-attachment: scroll;
+  }
+
+  /* Nav mobile — kompakter, ins Layout integriert */
+  .nav__links,
+  .nav__cta { display: none; }
+
+  .nav { padding: 0.45rem 0; }
+  .nav.scrolled { padding: 0.35rem 0; }
+
+  .nav__logo-img { height: 56px; }
+  .nav.scrolled .nav__logo-img { height: 48px; }
+
+  .nav__toggle {
+    display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Toggle rechts oben + über dem geöffneten Menü klickbar */
+  .nav__toggle { position: relative; z-index: 1001; margin-left: auto; }
+
+  /* Logo dauerhaft sichtbar (über Menü-Panel) */
+  .nav__logo { position: relative; z-index: 1001; }
+
+  /* Scroll-Hint überlappt auf Mobil mit den Hero-Buttons → ausblenden */
+  .hero__scroll-hint { display: none; }
+
+  /* Mobile menu panel — unter dem Header, schwarzer Hintergrund */
+  .nav__links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0 0 auto 0;
+    padding: 88px 1.5rem 2rem;
+    background: #000;
+    border-bottom: 1px solid rgba(201, 168, 64, 0.16);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.6);
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    z-index: 1000;
+  }
+
+  .nav__links.open li {
+    width: 100%;
+    border-top: 1px solid rgba(201, 168, 64, 0.10);
+  }
+  /* Desktop-Dekor im Mobilmenü deaktivieren */
+  .nav__links.open li + li::before { display: none; }
+  .nav__links.open li a::before,
+  .nav__links.open li a::after { display: none; }
+  .nav__links.open li:last-child { border-bottom: 1px solid rgba(201, 168, 64, 0.10); }
+
+  .nav__links.open li a {
+    font-size: 1.05rem;
+    font-family: 'Geist Sans', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(195, 195, 202, 0.88);
+    display: block;
+    width: 100%;
+    padding: 1.1rem 0.25rem;
+  }
+
+  .nav__links.open li a.active { color: var(--gold); }
+
+  .nav__links.open .nav__mobile-cta {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 1.5rem;
+    border: none;
+  }
+  .nav__links.open .nav__mobile-cta a {
+    text-align: center;
+    width: auto;
+  }
+
+  /* Hero tablet / mobile — Split-Layout aufheben */
+  .hero__inner,
+  .hero__inner--split {
+    flex-direction: column;
+    padding-top: 88px;
+    gap: 2rem;
+  }
+
+  .hero__img-col {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero__work-img {
+    height: clamp(300px, 75vw, 480px);
+    object-fit: cover;
+    /* oberen Bildbereich erhalten — nicht von oben abschneiden */
+    object-position: center top;
+  }
+
+  /* Hero-Kacheln: natürlicheres Seitenverhältnis auf schmalen Screens */
+  .hero__tile img { object-position: center top; }
+  .hero__tile--1,
+  .hero__tile--5 { height: clamp(180px, 30vw, 300px); }
+  .hero__tile--2,
+  .hero__tile--4 { height: clamp(170px, 28vw, 285px); }
+  .hero__tile--3 { height: clamp(160px, 26vw, 270px); }
+
+  .hero__inner--split .hero__content {
+    text-align: center;
+  }
+
+  .hero__inner--split .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__inner--split .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* About */
+  .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about__img-frame { height: clamp(340px, 80vw, 520px); }
+  .about__img-frame img { object-fit: cover; object-position: center top; }
+  .about__img-accent { display: none; }
+  .about__years-badge { left: 1rem; }
+  .about__stats { flex-wrap: wrap; gap: 1.25rem 2rem; }
+
+  /* Portfolio 3D — reduce height on mobile */
+  .portfolio__3d-wrap {
+    height: 65vh;
+    min-height: 380px;
+  }
+
+  /* Portfolio carousel arrows */
+  .portfolio__arrow--prev { left: -52px; }
+  .portfolio__arrow--next { right: -52px; }
+  .portfolio__arrow { width: 44px; height: 44px; }
+
+  .portfolio__page--6 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 220px);
+  }
+
+  .portfolio__page--4 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 240px);
+  }
+
+  /* Process */
+  .process__timeline { margin-top: 2.5rem; }
+  .process__timeline::before { left: 28px; transform: none; }
+
+  .process__row {
+    grid-template-columns: 56px 1fr;
+    gap: 0 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .process__row:nth-child(odd) .process__col:first-child  { display: none; }
+  .process__row:nth-child(odd) .process__node             { grid-column: 1; }
+  .process__row:nth-child(odd) .process__col:last-child   { grid-column: 2; }
+
+  .process__row:nth-child(even) .process__col:last-child  { display: none; }
+  .process__row:nth-child(even) .process__node            { grid-column: 1; grid-row: 1; }
+  .process__row:nth-child(even) .process__col:first-child { grid-column: 2; grid-row: 1; }
+
+  .process__card--left {
+    text-align: left;
+    border-left: 2px solid rgba(196, 163, 90, 0.32);
+    border-right: 1px solid rgba(196, 163, 90, 0.1);
+  }
+  .process__card--left:hover {
+    border-left-color: rgba(196, 163, 90, 0.55);
+    border-right-color: rgba(196, 163, 90, 0.1);
+  }
+
+  .process__node { background: transparent; }
+
+  /* Instagram */
+  .instagram__wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* Contact */
+  .contact__grid { grid-template-columns: 1fr; gap: 3rem; }
+
+  /* Form — 2-col rows stack on mobile */
+  .form__row { grid-template-columns: 1fr; }
+
+  /* FAQ */
+  .faq__grid { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer__top { flex-direction: column; gap: 2rem; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (≤ 580px)
+   ============================================================ */
+@media (max-width: 580px) {
+  /* Slightly tighter section padding */
+  .section {
+    padding-top: clamp(1rem, 2vw, 1.5rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  /* Reduce hero gap and heading size for narrow screens */
+  .hero__inner,
+  .hero__inner--split {
+    padding-top: 80px;
+    gap: 1.5rem;
+  }
+
+  h1 { font-size: clamp(2.2rem, 9.5vw, 3.2rem); }
+
+  /* Hero image shorter on phones */
+  .hero__work-img { height: clamp(280px, 75vw, 380px); }
+
+  /* Portfolio 3D shorter on small phones */
+  .portfolio__3d-wrap {
+    height: 60vh;
+    min-height: 320px;
+  }
+
+  /* Portfolio arrows: pull inside container to avoid off-screen clipping */
+  .portfolio__arrow--prev { left: 8px; }
+  .portfolio__arrow--next { right: 8px; }
+  .portfolio__arrow { width: 38px; height: 38px; }
+  .portfolio__arrow svg { width: 18px; height: 18px; }
+
+  .portfolio__page--6 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 240px);
+  }
+  .portfolio__page--6 .portfolio__item:first-child { grid-row: span 1; }
+
+  .portfolio__page--4 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 240px);
+  }
+
+  /* Instagram 2-col */
+  .instagram__grid { grid-template-columns: 1fr 1fr; }
+
+  /* About stats wrap */
+  .about__stats { flex-wrap: wrap; gap: 1.25rem 2rem; }
+
+  /* Contact info items — prevent text overflow */
+  .contact__info-item {
+    padding: 1rem 1.25rem;
+  }
+
+  /* Larger tap targets for FAQ accordion buttons */
+  .faq__question {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Footer nav links wrap on very small screens */
+  .footer__links { flex-wrap: wrap; gap: 1rem; }
+}

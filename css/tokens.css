@@ -1,0 +1,47 @@
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Gold Palette */
+  --gold:          #C9A840;
+  --gold-light:    #DDB84E;
+  --gold-pale:     #EDD78A;
+  --gold-dark:     #8A6B10;
+  --gold-muted:    rgba(201, 168, 64, 0.10);
+  --gold-glow:     rgba(201, 168, 64, 0.18);
+  --gold-border:   rgba(201, 168, 64, 0.22);
+  --gold-gradient: linear-gradient(45deg, #f6e27a, #d4af37, #b8860b);
+
+  /* Surface Palette */
+  --bg:          #0A0A0A;
+  --bg-soft:     #101010;
+  --bg-card:     #161616;
+  --bg-card-2:   #1C1C1C;
+  --bg-raised:   #222222;
+
+  /* Text — Silver/Metallic palette */
+  --text:        #C8C8CC;
+  --text-muted:  rgba(234, 234, 250, 0.82);
+  --text-faint:  rgba(199, 199, 211, 0.56);
+  --text-silver: #B8B8C0;
+  --text-bright: #D8D8DE;
+
+  /* Borders */
+  --border:      rgba(255, 255, 255, 0.07);
+  --border-gold: rgba(201, 168, 64, 0.22);
+
+  /* Radii */
+  --r-sm:  4px;
+  --r-md:  8px;
+  --r-lg:  14px;
+  --r-xl:  20px;
+
+  /* Motion */
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --ease-base: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  180ms;
+  --dur-mid:   320ms;
+  --dur-slow:  600ms;
+  --dur-hero:  1600ms;
+}

@@ -1,0 +1,87 @@
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  padding-top: clamp(4rem, 7vw, 7rem);
+  background-color: transparent;
+  background-image:
+    linear-gradient(to bottom,
+      transparent 0%,
+      rgba(14, 10, 6, 0.20) 20%,
+      rgba(14, 10, 6, 0.20) 80%,
+      transparent 100%
+    ),
+    /* Verbindungsecho zu Contact — Glow oben rechts */
+    radial-gradient(ellipse 55% 30% at 78% 4%, rgba(196, 143, 50, 0.025) 0%, transparent 65%),
+    /* Subtiler Amber-Hauch von oben — warme, ruhige Atmosphäre */
+    radial-gradient(ellipse 80% 38% at 50% 0%, rgba(196, 143, 50, 0.03) 0%, transparent 70%);
+}
+
+.faq__header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.faq__header .section-subtitle { margin: 0 auto; }
+
+.faq__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.faq__item { background: var(--bg-card); }
+
+.faq__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.75rem;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--text);
+  text-align: left;
+  gap: 1rem;
+  transition: color var(--dur-fast), background var(--dur-fast);
+  border-radius: 0;
+}
+
+.faq__question:hover { color: var(--gold); background: var(--bg-card-2); }
+
+.faq__question:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.faq__icon {
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.faq__question[aria-expanded="true"] .faq__icon {
+  transform: rotate(45deg);
+}
+
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms var(--ease-out), padding 300ms ease;
+}
+
+.faq__answer.open {
+  max-height: 240px;
+  padding-bottom: 1.5rem;
+}
+
+.faq__answer p {
+  padding: 0 1.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joe Guaraglia — Tattoo Artist</title>
+  <meta name="description" content="Tattoo art by Joe Guaraglia. Appointments by request only. Because every person and every investment deserves respect.">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <canvas id="heroSmoke" class="hero__smoke" aria-hidden="true"></canvas>
+
+  <!-- ======================== NAVIGATION ======================== -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav__container">
+      <a href="#hero" class="nav__logo" aria-label="Joe Guaraglia — back to top">
+        <img src="assets/images/logo/logo_joe.png" alt="Joe Guaraglia" class="nav__logo-img" width="112" height="80" loading="eager">
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav__links" id="navLinks" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#process">Process</a></li>
+
+          <li><a href="#faq">FAQ</a></li>
+          <li class="nav__mobile-cta">
+            <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer" class="nav__cta nav__cta--ig" aria-label="Joe Guaraglia on Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <span>Instagram</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======================== HERO ======================== -->
+    <section class="hero" id="hero" aria-label="Welcome">
+      <div class="hero__inner hero__inner--split">
+        <div class="hero__img-col hero-fade-up" style="--delay: 0.2s">
+          <img src="assets/images/joe/joe-at-work.png" alt="Joe Guaraglia at work" loading="eager" fetchpriority="high" class="hero__work-img">
+        </div>
+
+        <div class="hero__content">
+          <p class="hero__name hero-fade-up" style="--delay: 0.5s">Joe Guaraglia</p>
+          <p class="hero__eyebrow hero-fade-up" style="--delay: 0.7s">Tattoo Artist &middot; Karlsruhe</p>
+          <h1 class="hero__title hero-fade-up" style="--delay: 0.9s">
+            Tattoos<br>that <em>last.</em>
+          </h1>
+          <p class="hero__subtitle hero-fade-up" style="--delay: 1.1s">
+            Because every person and every investment&nbsp;deserves respect.
+          </p>
+          <div class="hero__actions hero-fade-up" style="--delay: 1.3s">
+            <a href="#contact" class="btn btn--gold">Book an appointment</a>
+            <a href="#portfolio" class="btn btn--ghost">View portfolio</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint hero-fade-up" style="--delay: 1.6s" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ======================== ÜBER JOE ======================== -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__grid">
+
+          <div class="about__image reveal-left">
+            <div class="about__img-frame">
+              <img src="assets/images/joe/joe-portrait.png" alt="Joe Guaraglia in the studio" loading="lazy">
+            </div>
+            <div class="about__img-accent" aria-hidden="true"></div>
+          </div>
+
+          <div class="about__content reveal-right">
+<h2 class="section-title" id="about-heading">
+              No tattoo without<br><em>trust.</em>
+            </h2>
+            <p class="about__text">
+              I'm Joe Guaraglia — a tattoo artist driven by passion, not routine. Every piece I create
+              has a story behind it. But what truly sets me apart happens before the needle: the conversation.
+            </p>
+            <p class="about__text">
+              Every person carries a story. Every euro someone invests in a tattoo deserves absolute respect.
+              That's why I take the time your idea needs — no pressure, no sales pitch. The result should
+              not just be beautiful, but <em>truly yours</em>.
+            </p>
+            <div class="about__divider" aria-hidden="true"></div>
+            <div class="about__stats" role="list">
+              <div class="stat" role="listitem">
+                <span class="stat__number">10+</span>
+                <span class="stat__label">Years of experience</span>
+              </div>
+              <div class="stat" role="listitem">
+                <span class="stat__number">500+</span>
+                <span class="stat__label">Happy clients</span>
+              </div>
+              <div class="stat" role="listitem">
+                <span class="stat__number">100%</span>
+                <span class="stat__label">Appointment Only</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== PORTFOLIO ======================== -->
+    <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <h2 class="section-title" id="portfolio-heading">Portfolio</h2>
+        </div>
+      </div>
+
+      <div id="portfolio-3d" class="portfolio__3d-wrap" role="region" aria-label="3D Portfolio Gallery">
+        <div class="portfolio__3d-edge" aria-hidden="true"></div>
+        <div class="portfolio__3d-hint" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2v10M12 12l-3-3M12 12l3-3"/>
+            <circle cx="12" cy="19" r="3"/>
+          </svg>
+          <span>Scroll or use arrow keys to navigate</span>
+        </div>
+        <div class="portfolio__3d-fallback">
+          <p>WebGL is not supported by your browser.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================== INSTAGRAM ======================== -->
+    <section class="section instagram" id="instagram" aria-labelledby="instagram-heading">
+      <div class="instagram__bg-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="instagram__cta reveal-up">
+          <span class="section-label">Instagram</span>
+          <h2 class="section-title instagram__title" id="instagram-heading">
+            More work.<br><em>Daily.</em>
+          </h2>
+          <p class="instagram__sub">
+            New pieces, process videos and behind-the-scenes — all on Instagram.
+          </p>
+          <div class="instagram__handle-row">
+            <svg class="instagram__ig-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span class="instagram__handle" aria-label="Instagram Handle: @joe_gtattoo">@joe_gtattoo</span>
+          </div>
+          <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer" class="btn btn--gold instagram__btn">
+            Follow on Instagram
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== ARBEITSWEISE ======================== -->
+    <section class="section process" id="process" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <h2 class="section-title" id="process-heading">
+            From idea<br>to <em>masterpiece.</em>
+          </h2>
+          <p class="section-subtitle">
+            I believe a great tattoo starts with an honest conversation.
+          </p>
+        </div>
+
+        <div class="process__timeline">
+
+          <!-- 01 -->
+          <div class="process__row reveal-up" style="--delay: 0s">
+            <div class="process__col"></div>
+            <div class="process__node">
+              <span class="process__num">01</span>
+            </div>
+            <div class="process__col">
+              <article class="process__card">
+                <h3>The first conversation</h3>
+                <p>We talk. About your idea, your story, your expectations. No pressure, no sales pitch — I want to understand what truly matters to you.</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- 02 -->
+          <div class="process__row reveal-up" style="--delay: 0.1s">
+            <div class="process__col">
+              <article class="process__card process__card--left">
+                <h3>Design &amp; concept</h3>
+                <p>Based on our conversation I develop a custom design. You receive a draft for review — revisions are a natural part of the process.</p>
+              </article>
+            </div>
+            <div class="process__node">
+              <span class="process__num">02</span>
+            </div>
+            <div class="process__col"></div>
+          </div>
+
+          <!-- 03 -->
+          <div class="process__row reveal-up" style="--delay: 0.2s">
+            <div class="process__col"></div>
+            <div class="process__node">
+              <span class="process__num">03</span>
+            </div>
+            <div class="process__col">
+              <article class="process__card">
+                <h3>The session</h3>
+                <p>In a calm, respectful atmosphere we bring the design to life. I take the time the piece deserves — not the time I can sell.</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- 04 -->
+          <div class="process__row reveal-up" style="--delay: 0.3s">
+            <div class="process__col">
+              <article class="process__card process__card--left">
+                <h3>Aftercare &amp; support</h3>
+                <p>After your session I don't leave you on your own. You receive clear aftercare instructions and I'm personally reachable if you have any questions.</p>
+              </article>
+            </div>
+            <div class="process__node">
+              <span class="process__num">04</span>
+            </div>
+            <div class="process__col"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================== KONTAKT ======================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact__grid">
+
+          <div class="contact__left reveal-left">
+            <span class="section-label">Contact</span>
+            <h2 class="section-title" id="contact-heading">
+              Let's create something<br><em>permanent.</em>
+            </h2>
+            <p class="contact__desc">
+              Custom tattoos are available by request only. Share your idea with me —
+              I'll get back to you personally.
+            </p>
+            <address class="contact__info">
+              <div class="contact__info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div>
+                  <span>Email</span>
+                  <a href="mailto:joe@example.com">joe@example.com</a>
+                </div>
+              </div>
+              <div class="contact__info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <div>
+                  <span>Instagram</span>
+                  <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer">@joe_gtattoo</a>
+                </div>
+              </div>
+              <div class="contact__info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <span>Studio</span>
+                  <p>Kaiserstraße 172, 76133 Karlsruhe</p>
+                </div>
+              </div>
+            </address>
+          </div>
+
+          <div class="contact__right reveal-right">
+            <form class="contact__form" id="contactForm" novalidate aria-label="Appointment request form">
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="name">Full name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name">
+                  <span class="form__error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form__group">
+                  <label for="phone">Phone number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+49 123 456789" autocomplete="tel">
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="email">Email address <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
+                <span class="form__error" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form__group">
+                <label for="idea">Your tattoo idea</label>
+                <textarea id="idea" name="idea" rows="4" placeholder="Describe your vision — style, size, placement, meaning..."></textarea>
+              </div>
+              <div class="form__group">
+                <label for="reference">Reference images <span class="form__label-hint">(optional)</span></label>
+                <div class="form__upload" id="uploadArea" role="button" tabindex="0" aria-label="Upload images — click or drop here">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                  <p>Drop images here or <span>click to upload</span></p>
+                  <p class="form__upload-hint">JPG, PNG, WebP &middot; up to 10 MB per image</p>
+                  <input type="file" id="reference" name="reference" accept="image/*" multiple aria-label="Select reference images">
+                </div>
+                <div class="form__previews" id="filePreviews" aria-label="Preview of uploaded images" role="list"></div>
+              </div>
+              <button type="submit" class="btn btn--gold btn--full" id="submitBtn">
+                Send request
+              </button>
+              <div class="form__success" id="formSuccess" role="status" aria-live="polite" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Request received — I'll be in touch with you personally soon!
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- ============= FAQ ============= -->
+        <div class="faq" id="faq" aria-labelledby="faq-heading">
+          <div class="faq__header reveal-up">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title" id="faq-heading">
+              Frequently asked<br><em>questions.</em>
+            </h2>
+            <p class="section-subtitle">A few things worth knowing before you reach out.</p>
+          </div>
+
+          <div class="faq__grid reveal-up" style="--delay: 0.1s">
+            <div class="faq__item">
+              <button class="faq__question" aria-expanded="false" aria-controls="faq-1">
+                How do I book an appointment?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <div class="faq__answer" id="faq-1" role="region">
+                <p>Fill out the contact form on this page or message me directly on Instagram. After your inquiry I'll get back to you personally to discuss all the details.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <button class="faq__question" aria-expanded="false" aria-controls="faq-2">
+                Do you require a deposit?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <div class="faq__answer" id="faq-2" role="region">
+                <p>Yes, for custom designs I require a deposit to secure your appointment. It is of course deducted from the total price.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <button class="faq__question" aria-expanded="false" aria-controls="faq-3">
+                Can I see the design beforehand?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <div class="faq__answer" id="faq-3" role="region">
+                <p>Yes. I'll share the draft before your session and we can make adjustments together until you're completely satisfied.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <button class="faq__question" aria-expanded="false" aria-controls="faq-4">
+                Do you take walk-ins?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <div class="faq__answer" id="faq-4" role="region">
+                <p>I generally work by appointment only. On rare occasions short-notice slots become available — your best bet is to ask on Instagram.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <button class="faq__question" aria-expanded="false" aria-controls="faq-5">
+                Can I bring someone with me?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <div class="faq__answer" id="faq-5" role="region">
+                <p>Yes, one guest is very welcome. I deliberately create a relaxed and calm atmosphere — you should feel comfortable.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <button class="faq__question" aria-expanded="false" aria-controls="faq-6">
+                How do I prepare for my session?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <div class="faq__answer" id="faq-6" role="region">
+                <p>Come well-rested, fed and hydrated. Wear comfortable clothing that gives easy access to the area. We'll go over everything else together beforehand.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__logo">Joe Guaraglia</p>
+          <p class="footer__tagline">Tattoo Artist &middot; Karlsruhe</p>
+          <p class="footer__address">Kaiserstraße 172, 76133 Karlsruhe</p>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer" aria-label="Follow Joe Guaraglia on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Joe Guaraglia. All rights reserved.</p>
+        <div class="footer__links">
+          <a href="#">Imprint</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================== LIGHTBOX ======================== -->
+  <div id="portfolio-lightbox" class="portfolio__lb" role="dialog" aria-modal="true" aria-label="Tattoo full view">
+    <button class="portfolio__lb-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <button class="portfolio__lb-nav portfolio__lb-prev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <img class="portfolio__lb-img" src="" alt="Tattoo detail view" loading="lazy">
+    <button class="portfolio__lb-nav portfolio__lb-next" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+    <span class="portfolio__lb-counter" aria-live="polite"></span>
+  </div>
+
+  <script src="js/smoke-background.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script type="module" src="js/portfolio-3d.js"></script>
+  <script src="js/scroll-reveal.js" defer></script>
+  <script src="js/faq.js" defer></script>
+  <script src="js/form.js" defer></script>
+  <script src="js/cursor.js" defer></script>
+</body>
+</html>
