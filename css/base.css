@@ -90,7 +90,9 @@ em {
 }
 
 .section-label {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   font-family: 'Geist Sans', system-ui, sans-serif;
   font-size: clamp(2rem, 1.8vw, 2.75rem);
   font-weight: 500;
@@ -103,6 +105,10 @@ em {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+.section-label svg {
+  flex-shrink: 0;
+  stroke: var(--gold);
 }
 
 .section-title {

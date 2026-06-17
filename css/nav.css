@@ -271,12 +271,20 @@
 
 .nav__mobile-cta { display: none !important; }
 
+.nav:has(.nav__links.open) {
+  border-bottom-color: transparent;
+}
+
 .nav__links.open .nav__mobile-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--gold) !important;
   font-size: 1rem !important;
   font-family: 'Geist Sans', system-ui, sans-serif !important;
   font-weight: 500 !important;
   border: 1px solid var(--border-gold);
+  border-bottom: none;
   padding: 0.65rem 1.75rem;
   border-radius: var(--r-sm);
 }
