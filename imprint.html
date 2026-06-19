@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imprint — Joe Guaraglia</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="assets/images/logo/logo_joe.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/logo/logo_joe.png">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .legal-page {
+      min-height: 100vh;
+      padding: 120px 0 80px;
+    }
+
+    .legal-page__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 48px;
+      transition: color 0.2s;
+    }
+
+    .legal-page__back:hover {
+      color: var(--gold);
+    }
+
+    .legal-page__title {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+
+    .legal-page__body h2 {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 40px 0 12px;
+    }
+
+    .legal-page__body p,
+    .legal-page__body address {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-style: normal;
+      margin-bottom: 16px;
+    }
+
+    .legal-page__body a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .legal-page__body a:hover {
+      text-decoration: underline;
+    }
+
+    .legal-placeholder {
+      display: inline-block;
+      background: rgba(196, 163, 90, 0.12);
+      border: 1px dashed var(--gold-border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      color: var(--gold);
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="legal-page">
+    <div class="container">
+      <a href="index.html" class="legal-page__back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Back to website
+      </a>
+
+      <h1 class="legal-page__title">Imprint</h1>
+
+      <div class="legal-page__body">
+
+        <h2>Information according to § 5 TMG</h2>
+        <address>
+          <span class="legal-placeholder">Full name / company name</span><br>
+          Kaiserstraße 172<br>
+          76133 Karlsruhe<br>
+          Germany
+        </address>
+
+        <h2>Contact</h2>
+        <p>
+          Phone: <span class="legal-placeholder">Phone number</span><br>
+          Email: <a href="mailto:joelguaraglia@gmail.com">joelguaraglia@gmail.com</a>
+        </p>
+
+        <h2>Tax</h2>
+        <p>
+          VAT ID / Tax number: <span class="legal-placeholder">Tax number</span>
+        </p>
+
+        <h2>Responsible for content</h2>
+        <p>
+          <span class="legal-placeholder">Full name</span><br>
+          Kaiserstraße 172, 76133 Karlsruhe
+        </p>
+
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

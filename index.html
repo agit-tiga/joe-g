@@ -1,26 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joe Guaraglia — Tattoo Artist</title>
-  <meta name="description" content="Tattoo art by Joe Guaraglia. Appointments by request only. Because every person and every investment deserves respect.">
+  <title>Joe Guaraglia — Tattoo Artist Karlsruhe</title>
+  <meta name="description"
+    content="Custom realism and Japanese tattooing by Joe Guaraglia in Karlsruhe. Appointments by request only. Because every person and every investment deserves respect.">
   <meta name="theme-color" content="#0A0A0A">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:title" content="Joe Guaraglia — Tattoo Artist">
+  <meta property="og:description" content="Custom realism and Japanese tattooing crafted for a lifetime. Appointments by request only.">
+  <meta property="og:image" content="https://[domain]/assets/images/joe/joe-at-work.webp">
+  <meta property="og:url" content="https://[domain]">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://[domain]">
+
+  <link rel="icon" href="assets/images/logo/logo_joe.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/logo/logo_joe.png">
+
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TattooParlor",
+    "name": "Joe Guaraglia — Tattoo Artist",
+    "description": "Custom realism and Japanese tattooing in Karlsruhe. Appointments by request only.",
+    "url": "https://[domain]",
+    "telephone": "",
+    "email": "joelguaraglia@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kaiserstraße 172",
+      "addressLocality": "Karlsruhe",
+      "postalCode": "76133",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.0069,
+      "longitude": 8.4037
+    },
+    "sameAs": [
+      "https://www.instagram.com/joe_gtattoo"
+    ],
+    "image": "https://[domain]/assets/images/joe/joe-at-work.webp",
+    "priceRange": "€€€"
+  }
+  </script>
 
   <link rel="stylesheet" href="css/style.css">
 
   <script type="importmap">
   {
     "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"
+      "three": "./assets/vendor/three.module.js"
     }
   }
   </script>
 </head>
+
 <body>
 
   <canvas id="heroSmoke" class="hero__smoke" aria-hidden="true"></canvas>
@@ -29,10 +74,12 @@
   <header class="nav" id="nav" role="banner">
     <div class="nav__container">
       <a href="#hero" class="nav__logo" aria-label="Joe Guaraglia — back to top">
-        <img src="assets/images/logo/logo_joe.png" alt="Joe Guaraglia" class="nav__logo-img" width="112" height="80" loading="eager">
+        <img src="assets/images/logo/logo_joe.png" alt="Joe Guaraglia" class="nav__logo-img" width="112" height="80"
+          loading="eager">
       </a>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <button class="nav__toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
 
@@ -45,15 +92,26 @@
           <li><a href="#faq">FAQ</a></li>
           <li class="nav__mobile-cta">
             <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
               <span>Instagram</span>
             </a>
           </li>
         </ul>
       </nav>
 
-      <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer" class="nav__cta nav__cta--ig" aria-label="Joe Guaraglia on Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer"
+        class="nav__cta nav__cta--ig" aria-label="Joe Guaraglia on Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        </svg>
         <span>Instagram</span>
       </a>
     </div>
@@ -65,7 +123,11 @@
     <section class="hero" id="hero" aria-label="Welcome">
       <div class="hero__inner hero__inner--split">
         <div class="hero__img-col hero-fade-up" style="--delay: 0.2s">
-          <img src="assets/images/joe/joe-at-work.png" alt="Joe Guaraglia at work" loading="eager" fetchpriority="high" class="hero__work-img">
+          <picture>
+            <source srcset="assets/images/joe/joe-at-work.webp" type="image/webp">
+            <img src="assets/images/joe/joe-at-work.png" alt="Joe Guaraglia at work" loading="eager" fetchpriority="high"
+              class="hero__work-img">
+          </picture>
         </div>
 
         <div class="hero__content">
@@ -97,20 +159,27 @@
 
           <div class="about__image reveal-left">
             <div class="about__img-frame">
-              <img src="assets/images/joe/joe-portrait.png" alt="Joe Guaraglia in the studio" loading="lazy">
+              <picture>
+                <source srcset="assets/images/joe/joe-portrait.webp" type="image/webp">
+                <img src="assets/images/joe/joe-portrait.png" alt="Joe Guaraglia in the studio" loading="lazy">
+              </picture>
             </div>
             <div class="about__img-accent" aria-hidden="true"></div>
           </div>
 
           <div class="about__content reveal-right">
-<h2 class="section-title" id="about-heading">
+            <h2 class="section-title" id="about-heading">
               No tattoo without<br><em>trust.</em>
             </h2>
             <p class="about__text">
-              I am Joe Guaraglia, a tattoo artist dedicated to turning skin into canvas. I specialize in the striking depth of black and grey realism and the timeless, flowing narrative of traditional and modern Japanese large-scale work.
+              I am Joe Guaraglia, a tattoo artist dedicated to turning skin into canvas. I specialize in the striking
+              depth of black and grey realism and the timeless, flowing narrative of traditional and modern Japanese
+              large-scale work.
             </p>
             <p class="about__text">
-              For me, tattooing is a collaboration. Whether capturing the raw emotion of a realistic portrait or the powerful flow of an Irezumi backpiece, we take the time to refine the vision until it perfectly aligns with your story.
+              For me, tattooing is a collaboration. Whether capturing the raw emotion of a realistic portrait or the
+              powerful flow of an Irezumi backpiece, we take the time to refine the vision until it perfectly aligns
+              with your story.
             </p>
             <div class="about__divider" aria-hidden="true"></div>
             <div class="about__stats" role="list">
@@ -150,8 +219,8 @@
           <div class="portfolio__3d-edge" aria-hidden="true"></div>
           <div class="portfolio__3d-hint" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2v10M12 12l-3-3M12 12l3-3"/>
-              <circle cx="12" cy="19" r="3"/>
+              <path d="M12 2v10M12 12l-3-3M12 12l3-3" />
+              <circle cx="12" cy="19" r="3" />
             </svg>
             <span>Scroll or use arrow keys to navigate</span>
           </div>
@@ -170,8 +239,8 @@
           <div class="portfolio__3d-edge" aria-hidden="true"></div>
           <div class="portfolio__3d-hint" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2v10M12 12l-3-3M12 12l3-3"/>
-              <circle cx="12" cy="19" r="3"/>
+              <path d="M12 2v10M12 12l-3-3M12 12l3-3" />
+              <circle cx="12" cy="19" r="3" />
             </svg>
             <span>Scroll or use arrow keys to navigate</span>
           </div>
@@ -194,8 +263,14 @@
           <p class="instagram__sub">
             New pieces, process videos and behind-the-scenes, all on Instagram.
           </p>
-          <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer" class="btn btn--gold instagram__btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer"
+            class="btn btn--gold instagram__btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
             View on Instagram
           </a>
         </div>
@@ -225,7 +300,8 @@
             <div class="process__col">
               <article class="process__card">
                 <h3>The Vision &amp; Consultation</h3>
-                <p>We map out the concept. We discuss composition, placement, and the emotional weight behind the piece, ensuring the design fits the natural contours of your body.</p>
+                <p>We map out the concept. We discuss composition, placement, and the emotional weight behind the piece,
+                  ensuring the design fits the natural contours of your body.</p>
               </article>
             </div>
           </div>
@@ -235,7 +311,8 @@
             <div class="process__col">
               <article class="process__card process__card--left">
                 <h3>Design &amp; concept</h3>
-                <p>Based on our conversation I develop a custom design. You receive a draft for review. Revisions are a natural part of the process.</p>
+                <p>Based on our conversation I develop a custom design. You receive a draft for review. Revisions are a
+                  natural part of the process.</p>
               </article>
             </div>
             <div class="process__node">
@@ -253,7 +330,9 @@
             <div class="process__col">
               <article class="process__card">
                 <h3>The Execution</h3>
-                <p>In a quiet, focused studio environment, we bring the artwork to life. Large-scale work and intense realism require patience and presence—I focus entirely on the canvas until the details are perfect.</p>
+                <p>In a quiet, focused studio environment, we bring the artwork to life. Large-scale work and intense
+                  realism require patience and presence—I focus entirely on the canvas until the details are perfect.
+                </p>
               </article>
             </div>
           </div>
@@ -263,7 +342,8 @@
             <div class="process__col">
               <article class="process__card process__card--left">
                 <h3>Aftercare &amp; support</h3>
-                <p>After your session I don't leave you on your own. You receive clear aftercare instructions and I'm personally reachable if you have any questions.</p>
+                <p>After your session I don't leave you on your own. You receive clear aftercare instructions and I'm
+                  personally reachable if you have any questions.</p>
               </article>
             </div>
             <div class="process__node">
@@ -288,25 +368,40 @@
               Let's create something<br><em>permanent.</em>
             </h2>
             <p class="contact__desc">
-              Custom tattoos are available by request only. Share your idea with me, and I'll get back to you personally.
+              Custom tattoos are available by request only. Share your idea with me, and I'll get back to you
+              personally.
             </p>
             <address class="contact__info">
               <div class="contact__info-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
                 <div>
                   <span>Email</span>
-                  <a href="mailto:joe@example.com">joe@example.com</a>
+                  <a href="mailto:joelguaraglia@gmail.com">joelguaraglia@gmail.com</a>
                 </div>
               </div>
               <div class="contact__info-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
                 <div>
                   <span>Instagram</span>
-                  <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer">@joe_gtattoo</a>
+                  <a href="https://www.instagram.com/joe_gtattoo" target="_blank"
+                    rel="noopener noreferrer">@joe_gtattoo</a>
                 </div>
               </div>
               <div class="contact__info-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
                 <div>
                   <span>Studio</span>
                   <p>Kaiserstraße 172, 76133 Karlsruhe</p>
@@ -330,20 +425,29 @@
               </div>
               <div class="form__group">
                 <label for="email">Email address <span aria-hidden="true">*</span></label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
+                <input type="email" id="email" name="email" placeholder="john@example.com" required
+                  autocomplete="email">
                 <span class="form__error" role="alert" aria-live="polite"></span>
               </div>
               <div class="form__group">
                 <label for="idea">Your tattoo idea</label>
-                <textarea id="idea" name="idea" rows="4" placeholder="Describe your vision — style, size, placement, meaning..."></textarea>
+                <textarea id="idea" name="idea" rows="4"
+                  placeholder="Describe your vision — style, size, placement, meaning..."></textarea>
               </div>
               <div class="form__group">
                 <label for="reference">Reference images <span class="form__label-hint">(optional)</span></label>
-                <div class="form__upload" id="uploadArea" role="button" tabindex="0" aria-label="Upload images — click or drop here">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                <div class="form__upload" id="uploadArea" role="button" tabindex="0"
+                  aria-label="Upload images — click or drop here">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                    <polyline points="16 16 12 12 8 16" />
+                    <line x1="12" y1="12" x2="12" y2="21" />
+                    <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
+                  </svg>
                   <p>Drop images here or <span>click to upload</span></p>
                   <p class="form__upload-hint">JPG, PNG, WebP &middot; up to 10 MB per image</p>
-                  <input type="file" id="reference" name="reference" accept="image/*" multiple aria-label="Select reference images">
+                  <input type="file" id="reference" name="reference" accept="image/*" multiple
+                    aria-label="Select reference images">
                 </div>
                 <div class="form__previews" id="filePreviews" aria-label="Preview of uploaded images" role="list"></div>
               </div>
@@ -351,7 +455,10 @@
                 Send request
               </button>
               <div class="form__success" id="formSuccess" role="status" aria-live="polite" hidden>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 Request received — I'll be in touch with you personally soon!
               </div>
             </form>
@@ -372,61 +479,118 @@
           <div class="faq__grid reveal-up" style="--delay: 0.1s">
             <div class="faq__item">
               <button class="faq__question" aria-expanded="false" aria-controls="faq-1">
-                How do I book an appointment?
-                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                How do we begin the process?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               <div class="faq__answer" id="faq-1" role="region">
-                <p>Fill out the contact form on this page or message me directly on Instagram. After your inquiry I'll get back to you personally to discuss all the details.</p>
+                <p>You can
+                  initiate a project by sharing your concept via the
+                  contact section below or through Instagram. Tell
+                  me about your placement, desired style
+                  (Realism or Japanese), and the vision you
+                  have. I review each concept personally to
+                  ensure we are a perfect fit creatively.</p>
               </div>
             </div>
 
             <div class="faq__item">
               <button class="faq__question" aria-expanded="false" aria-controls="faq-2">
-                Do you require a deposit?
-                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Is a design deposit required?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               <div class="faq__answer" id="faq-2" role="region">
-                <p>Yes, for custom designs I require a deposit to secure your appointment. It is of course deducted from the total price.</p>
+                <p>Yes. To reserve
+                  dates in the calendar and dedicate studio time
+                  to creating your custom design, an artistic
+                  deposit is required. This commitment goes
+                  directly toward securing the drawing phase and
+                  your scheduled tattoo sessions.</p>
               </div>
             </div>
 
             <div class="faq__item">
               <button class="faq__question" aria-expanded="false" aria-controls="faq-3">
-                Can I see the design beforehand?
-                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Will I see the composition before the
+                session?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               <div class="faq__answer" id="faq-3" role="region">
-                <p>Yes. I'll share the draft before your session and we can make adjustments together until you're completely satisfied.</p>
+                <p>Absolutely. Large-scale Japanese
+                  work and intricate realism require absolute
+                  precision. We will review the concept and flow
+                  together before the needle touches your skin,
+                  ensuring the design fits perfectly with your
+                  anatomy and vision.</p>
               </div>
             </div>
 
             <div class="faq__item">
               <button class="faq__question" aria-expanded="false" aria-controls="faq-4">
-                Do you take walk-ins?
-                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Can I walk in for a session?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               <div class="faq__answer" id="faq-4" role="region">
-                <p>I generally work by appointment only. On rare occasions short-notice slots become available, your best bet is to ask on Instagram.</p>
+                <p>To maintain the
+                  focus required for intricate realism and
+                  large-scale tattooing, I work strictly by
+                  appointment. If an unexpected opening arises
+                  in the studio, I will announce it immediately on
+                  Instagram.</p>
               </div>
             </div>
 
             <div class="faq__item">
               <button class="faq__question" aria-expanded="false" aria-controls="faq-5">
                 Can I bring someone with me?
-                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               <div class="faq__answer" id="faq-5" role="region">
-                <p>Yes, one guest is very welcome. I deliberately create a relaxed and calm atmosphere — you should feel comfortable.</p>
+                <p>You are
+                  welcome to bring one guest. I intentionally
+                  cultivate a quiet, focused, and calm atmosphere
+                  in the studio—this space is designed for
+                  patience, comfort, and deep focus during
+                  intense sessions.</p>
               </div>
             </div>
 
             <div class="faq__item">
               <button class="faq__question" aria-expanded="false" aria-controls="faq-6">
-                How do I prepare for my session?
-                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                How should I prepare my canvas for the
+                day?
+                <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </button>
               <div class="faq__answer" id="faq-6" role="region">
-                <p>Come well-rested, fed and hydrated. Wear comfortable clothing that gives easy access to the area. We'll go over everything else together beforehand.</p>
+                <p>Arrive well-rested, fully hydrated, and
+                  having eaten a solid meal. Wear loose,
+                  comfortable clothing that allows easy,
+                  unrestricted access to the area we are
+                  tattooing. A prepared mind and body make a
+                  profound difference during a long session.</p>
               </div>
             </div>
           </div>
@@ -447,17 +611,23 @@
           <p class="footer__address">Kaiserstraße 172, 76133 Karlsruhe</p>
         </div>
         <div class="footer__social">
-          <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer" aria-label="Follow Joe Guaraglia on Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer"
+            aria-label="Follow Joe Guaraglia on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
             Instagram
           </a>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2025 Joe Guaraglia. All rights reserved.</p>
+        <p>&copy; 2026 Joe Guaraglia. All rights reserved.</p>
         <div class="footer__links">
-          <a href="#">Imprint</a>
-          <a href="#">Privacy Policy</a>
+          <a href="imprint.html">Imprint</a>
+          <a href="privacy.html">Privacy Policy</a>
         </div>
       </div>
     </div>
@@ -467,18 +637,19 @@
   <div id="portfolio-lightbox" class="portfolio__lb" role="dialog" aria-modal="true" aria-label="Tattoo full view">
     <button class="portfolio__lb-close" aria-label="Close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
     </button>
     <button class="portfolio__lb-nav portfolio__lb-prev" aria-label="Previous image">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
-        <polyline points="15 18 9 12 15 6"/>
+        <polyline points="15 18 9 12 15 6" />
       </svg>
     </button>
-    <img class="portfolio__lb-img" src="" alt="Tattoo detail view" loading="lazy">
+    <img class="portfolio__lb-img" src="" alt="Tattoo detail view">
     <button class="portfolio__lb-nav portfolio__lb-next" aria-label="Next image">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
-        <polyline points="9 18 15 12 9 6"/>
+        <polyline points="9 18 15 12 9 6" />
       </svg>
     </button>
     <span class="portfolio__lb-counter" aria-live="polite"></span>
@@ -493,4 +664,5 @@
   <script src="js/form.js" defer></script>
   <script src="js/cursor.js" defer></script>
 </body>
+
 </html>

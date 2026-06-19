@@ -9,6 +9,12 @@
 .claude/
 CLAUDE.md
 
+# Projektdokumentation (nur lokal relevant)
+GO-LIVE-CHECKLIST.md
+
+# Node
+node_modules/
+
 # Lokale Entwicklung
 test-results/
 
