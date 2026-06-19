@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -56,7 +56,7 @@ ul, ol { list-style: none; }
    TYPOGRAPHY
    ============================================================ */
 h1, h2, h3, h4 {
-  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.025em;
@@ -67,7 +67,7 @@ h2 { font-size: clamp(2rem, 9vw, 4rem); }
 h3 { font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 500; }
 
 em {
-  font-style: italic;
+  font-style: normal;
   background: linear-gradient(45deg, #f6e27a, #d4af37, #b8860b);
   -webkit-background-clip: text;
   background-clip: text;
@@ -93,10 +93,10 @@ em {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
-  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   font-size: clamp(2rem, 1.8vw, 2.75rem);
   font-weight: 500;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: 0.08em;
   text-transform: none;
   margin-bottom: 0.75rem;
@@ -144,7 +144,7 @@ em {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.875rem 2rem;
-  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -153,8 +153,7 @@ em {
     background var(--dur-fast) var(--ease-base),
     color var(--dur-fast) var(--ease-base),
     border-color var(--dur-fast) var(--ease-base),
-    transform var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-base);
+    transform var(--dur-fast) var(--ease-out);
   cursor: pointer;
   white-space: nowrap;
   position: relative;
@@ -169,13 +168,11 @@ em {
 .btn--gold {
   background: linear-gradient(45deg, #f6e27a, #d4af37, #b8860b);
   color: #0A0A0A;
-  box-shadow: 0 2px 20px rgba(201, 168, 64, 0.25);
 }
 
 .btn--gold:hover {
   background: linear-gradient(45deg, #faeea0, #dfc050, #c09020);
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(201, 168, 64, 0.40);
 }
 
 .btn--gold:active { transform: translateY(0); }

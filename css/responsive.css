@@ -71,7 +71,7 @@
 
   .nav__links.open li a {
     font-size: 1.05rem;
-    font-family: 'Geist Sans', system-ui, sans-serif;
+    font-family: 'Jost', system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -155,11 +155,19 @@
   .about__years-badge { left: 1rem; }
   .about__stats { flex-wrap: wrap; gap: 1.25rem 2rem; }
 
-  /* Portfolio 3D — reduce height on mobile */
+  /* Portfolio 3D — volle Breite auf Mobile, kein Desktop-Centering */
   .portfolio__3d-wrap {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
     height: 65vh;
     min-height: 380px;
+    background: rgba(10,10,10,0.25);
+    mask-image: none;
+    -webkit-mask-image: none;
   }
+
 
   /* Portfolio carousel arrows */
   .portfolio__arrow--prev { left: -52px; }
@@ -206,6 +214,12 @@
 
   .process__node { background: transparent; }
 
+  /* Instagram — weniger Abstand oben, einheitlich mit anderen Sektionen */
+  .instagram { padding-top: clamp(1rem, 2vw, 1.5rem); }
+
+  /* Process — Abstand oben beibehalten trotz kleinerer Geräte */
+  .process { padding-top: clamp(3rem, 5vw, 4rem); }
+
   /* Instagram */
   .instagram__wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
 
@@ -232,6 +246,11 @@
     padding-top: clamp(1rem, 2vw, 1.5rem);
     padding-bottom: clamp(2.5rem, 5vw, 4rem);
   }
+
+  /* Process: .section-Override rückgängig machen für einheitliche Optik */
+  .process { padding-top: clamp(4rem, 4vw, 5rem); }
+  /* Instagram: klein halten auch auf sehr kleinen Screens */
+  .instagram { padding-top: 0; }
 
   /* Reduce hero gap and heading size for narrow screens */
   .hero__inner,

@@ -7,7 +7,9 @@
   <meta name="description" content="Tattoo art by Joe Guaraglia. Appointments by request only. Because every person and every investment deserves respect.">
   <meta name="theme-color" content="#0A0A0A">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -70,10 +72,10 @@
           <p class="hero__name hero-fade-up" style="--delay: 0.5s">Joe Guaraglia</p>
           <p class="hero__eyebrow hero-fade-up" style="--delay: 0.7s">Tattoo Artist &middot; Karlsruhe</p>
           <h1 class="hero__title hero-fade-up" style="--delay: 0.9s">
-            Tattoos<br>that <em>last.</em>
+            Art that <em>moves with you.</em>
           </h1>
           <p class="hero__subtitle hero-fade-up" style="--delay: 1.1s">
-            Because every person and every investment&nbsp;deserves respect.
+            Custom realism and Japanese tattooing crafted for a lifetime.
           </p>
           <div class="hero__actions hero-fade-up" style="--delay: 1.3s">
             <a href="#contact" class="btn btn--gold">Book an appointment</a>
@@ -105,13 +107,10 @@
               No tattoo without<br><em>trust.</em>
             </h2>
             <p class="about__text">
-              I am Joe Guaraglia, a tattoo artist driven by passion, not routine. Every piece I create
-              has a story behind it. But what truly sets me apart happens before the needle: the conversation.
+              I am Joe Guaraglia, a tattoo artist dedicated to turning skin into canvas. I specialize in the striking depth of black and grey realism and the timeless, flowing narrative of traditional and modern Japanese large-scale work.
             </p>
             <p class="about__text">
-              Every person carries a story, and every tattoo deserves the respect that comes with it.
-              That's why I take the time your idea needs. Without pressure, no sales pitch. The result should
-              not just be beautiful, but <em>truly yours</em>.
+              For me, tattooing is a collaboration. Whether capturing the raw emotion of a realistic portrait or the powerful flow of an Irezumi backpiece, we take the time to refine the vision until it perfectly aligns with your story.
             </p>
             <div class="about__divider" aria-hidden="true"></div>
             <div class="about__stats" role="list">
@@ -142,17 +141,43 @@
         </div>
       </div>
 
-      <div id="portfolio-3d" class="portfolio__3d-wrap" role="region" aria-label="3D Portfolio Gallery">
-        <div class="portfolio__3d-edge" aria-hidden="true"></div>
-        <div class="portfolio__3d-hint" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2v10M12 12l-3-3M12 12l3-3"/>
-            <circle cx="12" cy="19" r="3"/>
-          </svg>
-          <span>Scroll or use arrow keys to navigate</span>
+      <!-- Japanese -->
+      <div class="portfolio__block reveal-up">
+        <div class="container">
+          <h3 class="portfolio__block-title">Japanese</h3>
         </div>
-        <div class="portfolio__3d-fallback">
-          <p>WebGL is not supported by your browser.</p>
+        <div id="portfolio-japanese" class="portfolio__3d-wrap" role="region" aria-label="Japanese Tattoo Gallery">
+          <div class="portfolio__3d-edge" aria-hidden="true"></div>
+          <div class="portfolio__3d-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2v10M12 12l-3-3M12 12l3-3"/>
+              <circle cx="12" cy="19" r="3"/>
+            </svg>
+            <span>Scroll or use arrow keys to navigate</span>
+          </div>
+          <div class="portfolio__3d-fallback">
+            <p>WebGL is not supported by your browser.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Realistic -->
+      <div class="portfolio__block reveal-up">
+        <div class="container">
+          <h3 class="portfolio__block-title">Realistic</h3>
+        </div>
+        <div id="portfolio-realistic" class="portfolio__3d-wrap" role="region" aria-label="Realistic Tattoo Gallery">
+          <div class="portfolio__3d-edge" aria-hidden="true"></div>
+          <div class="portfolio__3d-hint" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2v10M12 12l-3-3M12 12l3-3"/>
+              <circle cx="12" cy="19" r="3"/>
+            </svg>
+            <span>Scroll or use arrow keys to navigate</span>
+          </div>
+          <div class="portfolio__3d-fallback">
+            <p>WebGL is not supported by your browser.</p>
+          </div>
         </div>
       </div>
 
@@ -169,11 +194,8 @@
           <p class="instagram__sub">
             New pieces, process videos and behind-the-scenes, all on Instagram.
           </p>
-          <div class="instagram__handle-row">
-            <svg class="instagram__ig-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span class="instagram__handle" aria-label="Instagram Handle: @joe_gtattoo">@joe_gtattoo</span>
-          </div>
           <a href="https://www.instagram.com/joe_gtattoo" target="_blank" rel="noopener noreferrer" class="btn btn--gold instagram__btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             View on Instagram
           </a>
         </div>
@@ -202,8 +224,8 @@
             </div>
             <div class="process__col">
               <article class="process__card">
-                <h3>The first conversation</h3>
-                <p>We talk. About your idea, your story, your expectations. No pressure, no sales pitch. I want to understand what truly matters to you.</p>
+                <h3>The Vision &amp; Consultation</h3>
+                <p>We map out the concept. We discuss composition, placement, and the emotional weight behind the piece, ensuring the design fits the natural contours of your body.</p>
               </article>
             </div>
           </div>
@@ -230,8 +252,8 @@
             </div>
             <div class="process__col">
               <article class="process__card">
-                <h3>The session</h3>
-                <p>In a calm, respectful atmosphere we bring the design to life. I take the time the piece deserves, not the time I can sell.</p>
+                <h3>The Execution</h3>
+                <p>In a quiet, focused studio environment, we bring the artwork to life. Large-scale work and intense realism require patience and presence—I focus entirely on the canvas until the details are perfect.</p>
               </article>
             </div>
           </div>

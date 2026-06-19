@@ -129,10 +129,10 @@
 }
 
 .hero__name {
-  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   font-size: clamp(1.6rem, 2.8vw, 2.4rem);
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: 0.02em;
   color: var(--text);
   margin-bottom: 0.5rem;
@@ -178,7 +178,7 @@
 
 .hero__scroll-hint {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

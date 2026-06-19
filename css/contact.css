@@ -134,7 +134,7 @@
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   padding: 0.875rem 1.125rem;
-  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   font-size: 0.95rem;
   color: var(--text);
   transition:

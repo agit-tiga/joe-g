@@ -1,33 +1,56 @@
 import * as THREE from 'three';
 
-const IMAGES = [
-  'assets/images/tattoos/tattoo-03.jpg',
-  'assets/images/tattoos/tattoo-04.jpg',
-  'assets/images/tattoos/tattoo-05.jpg',
-  'assets/images/tattoos/tattoo-06.jpg',
-  'assets/images/tattoos/tattoo-07.jpg',
-  'assets/images/tattoos/tattoo-08.jpg',
-  'assets/images/tattoos/tattoo-09.jpg',
-  'assets/images/tattoos/tattoo-10.jpg',
-  'assets/images/tattoos/tattoo-11.jpg',
-  'assets/images/tattoos/tattoo-13.jpg',
-];
+/* ---- Image sets per gallery ---- */
+const GALLERIES = {
+  'portfolio-japanese': {
+    thumbs: [
+      'assets/images/tattoos/thumb/dscf0177.jpg',
+      'assets/images/tattoos/thumb/img_1126.jpg',
+      'assets/images/tattoos/thumb/img_6558.jpg',
+      'assets/images/tattoos/thumb/img_8457.jpg',
+      'assets/images/tattoos/thumb/img_8458.jpg',
+      'assets/images/tattoos/thumb/img_8761.jpg',
+      'assets/images/tattoos/thumb/img_9571.jpg',
+      'assets/images/tattoos/thumb/img_9581.jpg',
+    ],
+    fulls: [
+      'assets/images/tattoos/raw/dscf0177.jpg',
+      'assets/images/tattoos/raw/img_1126.jpg',
+      'assets/images/tattoos/raw/img_6558.jpg',
+      'assets/images/tattoos/raw/img_8457.jpg',
+      'assets/images/tattoos/raw/img_8458.jpg',
+      'assets/images/tattoos/raw/img_8761.jpg',
+      'assets/images/tattoos/raw/img_9571.jpg',
+      'assets/images/tattoos/raw/img_9581.jpg',
+    ],
+  },
+  'portfolio-realistic': {
+    thumbs: [
+      'assets/images/tattoos/thumb/img_1674.jpg',
+      'assets/images/tattoos/thumb/img_2331.jpg',
+      'assets/images/tattoos/thumb/img_2959.jpg',
+      'assets/images/tattoos/thumb/img_5205.jpg',
+      'assets/images/tattoos/thumb/img_9357.jpg',
+    ],
+    fulls: [
+      'assets/images/tattoos/raw/img_1674.jpg',
+      'assets/images/tattoos/raw/img_2331.jpg',
+      'assets/images/tattoos/raw/img_2959.jpg',
+      'assets/images/tattoos/raw/img_5205.jpg',
+      'assets/images/tattoos/raw/img_9357.jpg',
+    ],
+  },
+};
 
-const VISIBLE_COUNT = 22;   // viele gleichzeitig sichtbare Planes
-const SCALE_BASE    = 4.5;  // deutlich größere Bilder
-const SPEED         = 1.0;
-const DEPTH_RANGE   = 70;   // mehr Tiefe für 22 Planes
+const VISIBLE_COUNT = 22;
+const SCALE_BASE    = 4.5;
+const DEPTH_RANGE   = 70;
 const MAX_H_OFFSET  = 9;
 const MAX_V_OFFSET  = 5.5;
 
 const FADE = {
   fadeIn:  { start: 0.03, end: 0.20 },
   fadeOut: { start: 0.44, end: 0.48 },
-};
-const BLUR = {
-  blurIn:  { start: 0.00, end: 0.08 },
-  blurOut: { start: 0.44, end: 0.48 },
-  maxBlur: 7.0,
 };
 
 /* ---- Shaders (cloth-wave + blur) ---- */
@@ -59,25 +82,9 @@ const VERT = `
 const FRAG = `
   uniform sampler2D map;
   uniform float opacity;
-  uniform float blurAmount;
-  uniform float scrollForce;
   varying vec2 vUv;
   void main() {
     vec4 color = texture2D(map, vUv);
-    if (blurAmount > 0.01) {
-      vec2 off = vec2(blurAmount * 0.0009);
-      vec4 blurred = vec4(0.0);
-      float total  = 0.0;
-      for (float x = -2.0; x <= 2.0; x += 1.0) {
-        for (float y = -2.0; y <= 2.0; y += 1.0) {
-          float w = 1.0 / (1.0 + length(vec2(x, y)));
-          blurred += texture2D(map, vUv + vec2(x, y) * off) * w;
-          total += w;
-        }
-      }
-      color = blurred / total;
-    }
-    color.rgb += vec3(abs(scrollForce) * 0.004);
     gl_FragColor = vec4(color.rgb, color.a * opacity);
   }
 `;
@@ -89,8 +96,6 @@ function makeMaterial() {
     uniforms: {
       map:        { value: null },
       opacity:    { value: 1.0 },
-      blurAmount: { value: 0.0 },
-      scrollForce:{ value: 0.0 },
       time:       { value: 0.0 },
       isHovered:  { value: 0.0 },
     },
@@ -106,19 +111,21 @@ function spatialPositions(count) {
   }));
 }
 
-/* ---- Lightbox ---- */
-let lbIndex = 0;
+/* ---- Lightbox (shared, tracks active gallery images) ---- */
+let lbImages = [];
+let lbIndex  = 0;
 
 function updateLightboxImage() {
   const lb      = document.getElementById('portfolio-lightbox');
   const img     = lb.querySelector('.portfolio__lb-img');
   const counter = lb.querySelector('.portfolio__lb-counter');
-  img.src = IMAGES[lbIndex];
-  if (counter) counter.textContent = `${lbIndex + 1} / ${IMAGES.length}`;
+  img.src = lbImages[lbIndex];
+  if (counter) counter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
 }
 
-function openLightbox(index) {
-  lbIndex = ((index % IMAGES.length) + IMAGES.length) % IMAGES.length;
+function openLightbox(index, imageSet) {
+  lbImages = imageSet;
+  lbIndex  = ((index % lbImages.length) + lbImages.length) % lbImages.length;
   const lb = document.getElementById('portfolio-lightbox');
   lb.classList.add('portfolio__lb--open');
   document.body.style.overflow = 'hidden';
@@ -133,30 +140,31 @@ function closeLightbox() {
 }
 
 function lightboxPrev() {
-  lbIndex = (lbIndex - 1 + IMAGES.length) % IMAGES.length;
+  lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
   updateLightboxImage();
 }
 
 function lightboxNext() {
-  lbIndex = (lbIndex + 1) % IMAGES.length;
+  lbIndex = (lbIndex + 1) % lbImages.length;
   updateLightboxImage();
 }
 
 /* ---- Main class ---- */
 class Gallery3D {
-  constructor(container) {
-    this.container  = container;
-    this.vel        = 0;
-    this.autoPlay   = true;
-    this.pointer    = new THREE.Vector2(-9, -9);
-    this.raycaster  = new THREE.Raycaster();
+  constructor(container, thumbs, fulls) {
+    this.container   = container;
+    this.fulls       = fulls;
+    this.vel         = 0;
+    this.autoPlay    = true;
+    this.pointer     = new THREE.Vector2(-9, -9);
+    this.raycaster   = new THREE.Raycaster();
     this.hoveredMesh = null;
-    this.clock      = new THREE.Clock();
-    this.raf        = null;
-    this._ptrDown   = null; // for click-vs-drag detection
+    this.clock       = new THREE.Clock();
+    this.raf         = null;
+    this._ptrDown    = null;
 
     this._initRenderer();
-    this._loadTextures(IMAGES).then(textures => {
+    this._loadTextures(thumbs).then(textures => {
       this.textures = textures;
       this._build();
       this._bindEvents();
@@ -170,8 +178,8 @@ class Gallery3D {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.setSize(width, height);
-    // Transparent clear → CSS-Smoke-Background scheint durch
     this.renderer.setClearColor(0x000000, 0);
+    if (THREE.LinearSRGBColorSpace) this.renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
     this.container.appendChild(this.renderer.domElement);
 
     this.scene  = new THREE.Scene();
@@ -184,7 +192,6 @@ class Gallery3D {
     return Promise.all(srcs.map(src =>
       new Promise(resolve => {
         loader.load(src, tex => {
-          tex.colorSpace = THREE.SRGBColorSpace;
           resolve(tex);
         }, undefined, () => resolve(null));
       })
@@ -229,8 +236,6 @@ class Gallery3D {
   _bindEvents() {
     const canvas = this.renderer.domElement;
 
-
-    /* Pointer move → hover + pointer position */
     this._onMove = e => {
       const r = canvas.getBoundingClientRect();
       this.pointer.set(
@@ -239,11 +244,8 @@ class Gallery3D {
       );
     };
 
-    /* Click detection (ignore drags) */
-    this._onPtrDown = e => {
-      this._ptrDown = { x: e.clientX, y: e.clientY };
-    };
-    this._onPtrUp = e => {
+    this._onPtrDown = e => { this._ptrDown = { x: e.clientX, y: e.clientY }; };
+    this._onPtrUp   = e => {
       if (!this._ptrDown) return;
       const dx = e.clientX - this._ptrDown.x;
       const dy = e.clientY - this._ptrDown.y;
@@ -251,7 +253,6 @@ class Gallery3D {
       if (Math.sqrt(dx * dx + dy * dy) < 5) this._onClick(e);
     };
 
-    /* Resize */
     this._onResize = () => {
       const { width, height } = this.container.getBoundingClientRect();
       this.camera.aspect = width / height;
@@ -259,17 +260,15 @@ class Gallery3D {
       this.renderer.setSize(width, height);
     };
 
-    /* Lightbox keyboard */
     this._onLbKey = e => {
       const lb = document.getElementById('portfolio-lightbox');
       if (!lb.classList.contains('portfolio__lb--open')) return;
-      if (e.key === 'Escape')      { e.stopPropagation(); closeLightbox(); }
+      if (e.key === 'Escape')       { e.stopPropagation(); closeLightbox(); }
       else if (e.key === 'ArrowLeft')  { e.stopPropagation(); lightboxPrev(); }
       else if (e.key === 'ArrowRight') { e.stopPropagation(); lightboxNext(); }
     };
 
-    /* Lightbox swipe */
-    this._lbTouchStart = null;
+    this._lbTouchStart  = null;
     this._onLbTouchStart = e => { this._lbTouchStart = e.touches[0].clientX; };
     this._onLbTouchEnd   = e => {
       if (this._lbTouchStart === null) return;
@@ -279,15 +278,16 @@ class Gallery3D {
       dx < 0 ? lightboxNext() : lightboxPrev();
     };
 
-    canvas.addEventListener('pointermove',  this._onMove);
-    canvas.addEventListener('pointerdown',  this._onPtrDown);
-    canvas.addEventListener('pointerup',    this._onPtrUp);
-    window.addEventListener('keydown',      this._onLbKey);
-    window.addEventListener('resize',       this._onResize);
+    canvas.addEventListener('pointermove', this._onMove);
+    canvas.addEventListener('pointerdown', this._onPtrDown);
+    canvas.addEventListener('pointerup',   this._onPtrUp);
+    window.addEventListener('keydown',     this._onLbKey);
+    window.addEventListener('resize',      this._onResize);
 
-    /* Lightbox events */
+    /* Lightbox events — only attach once (first gallery wins) */
     const lb = document.getElementById('portfolio-lightbox');
-    if (lb) {
+    if (lb && !lb._lbBound) {
+      lb._lbBound = true;
       lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
       lb.querySelector('.portfolio__lb-close')?.addEventListener('click', closeLightbox);
       lb.querySelector('.portfolio__lb-prev')?.addEventListener('click', e => { e.stopPropagation(); lightboxPrev(); });
@@ -306,23 +306,21 @@ class Gallery3D {
     );
     this.raycaster.setFromCamera(ptr, this.camera);
     const hits = this.raycaster.intersectObjects(this.meshes);
-    // Skip planes that are faded out (opacity < 0.15) — shader hides them but geometry still intersects
-    const hit = hits.find(h => h.object.material.uniforms.opacity.value >= 0.15);
+    const hit  = hits.find(h => h.object.material.uniforms.opacity.value >= 0.15);
     if (!hit) return;
     const plane = this.planes[hit.object.userData.planeIndex];
-    openLightbox(plane.imageIndex);
+    openLightbox(plane.imageIndex, this.fulls);
   }
 
   _loop() {
-    this.raf     = requestAnimationFrame(() => this._loop());
-    const delta  = this.clock.getDelta();
-    const time   = this.clock.getElapsedTime();
+    this.raf    = requestAnimationFrame(() => this._loop());
+    const delta = this.clock.getDelta();
+    const time  = this.clock.getElapsedTime();
     const canvas = this.renderer.domElement;
 
     if (this.autoPlay) this.vel += 0.3 * delta;
     this.vel *= 0.95;
 
-    /* Hover */
     this.raycaster.setFromCamera(this.pointer, this.camera);
     const hit = this.raycaster.intersectObjects(this.meshes)[0]?.object ?? null;
     if (hit !== this.hoveredMesh) {
@@ -332,13 +330,10 @@ class Gallery3D {
     }
     canvas.style.cursor = hit ? 'pointer' : 'grab';
 
-    /* Shared uniforms */
     this.materials.forEach(m => {
-      m.uniforms.time.value        = time;
-      m.uniforms.scrollForce.value = this.vel;
+      m.uniforms.time.value = time;
     });
 
-    /* Plane positions + image cycling */
     const total = this.textures.length;
     const adv   = this.n % total || total;
 
@@ -355,7 +350,6 @@ class Gallery3D {
       const worldZ = p.z - DEPTH_RANGE / 2;
       mesh.position.set(p.x, p.y, worldZ);
 
-      /* Swap texture when plane wraps */
       const tex = this.textures[p.imageIndex];
       if (tex && this.materials[i].uniforms.map.value !== tex) {
         this.materials[i].uniforms.map.value = tex;
@@ -365,7 +359,6 @@ class Gallery3D {
       const np  = p.z / DEPTH_RANGE;
       const mat = this.materials[i];
 
-      /* Opacity */
       let op = 1;
       if      (np < FADE.fadeIn.start)  op = 0;
       else if (np < FADE.fadeIn.end)    op = (np - FADE.fadeIn.start) / (FADE.fadeIn.end  - FADE.fadeIn.start);
@@ -373,32 +366,25 @@ class Gallery3D {
       else if (np > FADE.fadeOut.start) op = 1 - (np - FADE.fadeOut.start) / (FADE.fadeOut.end - FADE.fadeOut.start);
       mat.uniforms.opacity.value = Math.max(0, Math.min(1, op));
 
-      /* Blur */
-      const mx = BLUR.maxBlur;
-      let   bl = 0;
-      if      (np < BLUR.blurIn.start)  bl = mx;
-      else if (np < BLUR.blurIn.end)    bl = mx * (1 - (np - BLUR.blurIn.start)  / (BLUR.blurIn.end  - BLUR.blurIn.start));
-      else if (np > BLUR.blurOut.end)   bl = mx;
-      else if (np > BLUR.blurOut.start) bl = mx *     ((np - BLUR.blurOut.start) / (BLUR.blurOut.end - BLUR.blurOut.start));
-      mat.uniforms.blurAmount.value = Math.max(0, Math.min(mx, bl));
     });
 
     this.renderer.render(this.scene, this.camera);
   }
 }
 
-/* ---- Boot ---- */
-const container = document.getElementById('portfolio-3d');
-if (container) {
+/* ---- Boot: one Gallery3D per configured container ---- */
+Object.entries(GALLERIES).forEach(([id, cfg]) => {
+  const container = document.getElementById(id);
+  if (!container) return;
   try {
     const test = document.createElement('canvas');
     const gl   = test.getContext('webgl') || test.getContext('experimental-webgl');
     if (gl) {
-      new Gallery3D(container);
+      new Gallery3D(container, cfg.thumbs, cfg.fulls);
     } else {
       container.classList.add('portfolio__3d-wrap--fallback');
     }
   } catch {
     container.classList.add('portfolio__3d-wrap--fallback');
   }
-}
+});

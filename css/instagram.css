@@ -34,26 +34,6 @@
   margin-bottom: 2.5rem;
 }
 
-.instagram__handle-row {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--gold);
-  margin-bottom: 2.2rem;
-}
-
-.instagram__ig-icon {
-  color: var(--gold);
-  flex-shrink: 0;
-}
-
-.instagram__handle {
-  font-family: 'Geist Sans', system-ui, sans-serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: var(--gold);
-}
 
 .instagram__btn {
   display: inline-flex;

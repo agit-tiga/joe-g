@@ -4,17 +4,6 @@
 .portfolio {
   padding-bottom: 0;
   background-color: transparent;
-  background-image:
-    linear-gradient(to bottom,
-      transparent 0%,
-      rgba(14, 10, 6, 0.40) 20%,
-      rgba(14, 10, 6, 0.40) 80%,
-      transparent 100%
-    ),
-    /* Verbindungsecho zu About — subtiler Glow oben links */
-    radial-gradient(ellipse 55% 35% at 18% 8%, rgba(196, 143, 50, 0.03) 0%, transparent 65%),
-    /* Amber-Glow Mitte — verbindet mit About-Sektion */
-    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(196, 143, 50, 0.025) 0%, transparent 70%);
 }
 
 .portfolio .section-header {
@@ -25,46 +14,36 @@
   color: var(--text);
 }
 
-/* ---- 3D Canvas Container (full-bleed) ---- */
+/* ---- 3D Canvas Container (Desktop: eingeschränkte Breite) ---- */
 .portfolio__3d-wrap {
   position: relative;
-  width: 100%;
+  width: 88%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   height: 80vh;
   min-height: 520px;
   max-height: 900px;
   overflow: hidden;
   margin-bottom: 3rem;
 
-  /* Smoke background: layered radial gradients, bleibt immer sichtbar */
+  /* Smoke background: subtler, leichtere Deckkraft */
   background:
-    radial-gradient(ellipse 110% 70%  at 50%  50%, rgba(10,8,5,0.18)        0%, transparent 65%),
-    radial-gradient(ellipse  55% 90%  at 18%  35%, rgba(196,163,90,0.10)    0%, transparent 55%),
-    radial-gradient(ellipse  60% 60%  at 82%  65%, rgba(196,163,90,0.08)    0%, transparent 50%),
-    radial-gradient(ellipse  80% 100% at 50% 100%, rgba(5,4,2,0.28)         0%, transparent 60%),
-    #0a0a0a;
-}
+    radial-gradient(ellipse 110% 70%  at 50%  50%, rgba(10,8,5,0.07)        0%, transparent 65%),
+    radial-gradient(ellipse  55% 90%  at 18%  35%, rgba(196,163,90,0.05)    0%, transparent 55%),
+    radial-gradient(ellipse  60% 60%  at 82%  65%, rgba(196,163,90,0.04)    0%, transparent 50%),
+    radial-gradient(ellipse  80% 100% at 50% 100%, rgba(5,4,2,0.10)         0%, transparent 60%),
+    rgba(10,10,10,0.55);
 
-/* Animated smoke layer (pseudo-element, immer im Hintergrund) */
-.portfolio__3d-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -20%;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 40% 60% at 30% 40%, rgba(196,163,90,0.22) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 70% 60%, rgba(196,163,90,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 50% 20%, rgba(196,163,90,0.10) 0%, transparent 50%);
-  animation: smokeShift 18s ease-in-out infinite alternate;
-  filter: blur(28px);
-  opacity: 1;
-}
-
-@keyframes smokeShift {
-  0%   { transform: translate(0,    0)    scale(1);    }
-  33%  { transform: translate(3%,  -5%)   scale(1.06); }
-  66%  { transform: translate(-4%,  4%)   scale(0.96); }
-  100% { transform: translate(2%,   6%)   scale(1.03); }
+  /* Weiche Überblend-Kanten an allen Seiten — fließt in Seitenhintergrund */
+  mask-image:
+    linear-gradient(to right,  transparent 0%,   black 22%,  black 78%,  transparent 100%),
+    linear-gradient(to bottom, transparent 0%,   black 12%,  black 88%,  transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%,   black 22%,  black 78%,  transparent 100%),
+    linear-gradient(to bottom, transparent 0%,   black 12%,  black 88%,  transparent 100%);
+  -webkit-mask-composite: source-in;
 }
 
 /* Gold hairlines above/below */
@@ -88,16 +67,8 @@
   background: transparent !important;
 }
 
-/* Edge vignette (side fades) */
-.portfolio__3d-edge {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  background:
-    linear-gradient(to right,  rgba(10,10,10,0.88) 0%, transparent 12%, transparent 88%, rgba(10,10,10,0.88) 100%),
-    linear-gradient(to bottom, rgba(10,10,10,0.72) 0%, transparent 10%, transparent 90%, rgba(10,10,10,0.72) 100%);
-}
+/* Edge vignette — deactivated to avoid altering image brightness */
+.portfolio__3d-edge { display: none; }
 
 /* Scroll hint overlay */
 .portfolio__3d-hint {
@@ -137,6 +108,32 @@
 
 .portfolio__3d-wrap--fallback .portfolio__3d-fallback { display: flex; }
 .portfolio__3d-wrap--fallback canvas { display: none; }
+
+/* ---- Gallery blocks (Japanese / Realistic) ---- */
+.portfolio__block {
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+.portfolio__block:last-child {
+  margin-bottom: 0;
+}
+.portfolio__block-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  font-weight: 600;
+  color: var(--gold-pale);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.portfolio__block-title::after {
+  content: '';
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  background: var(--gold-border);
+  margin: 0.65rem auto 0;
+}
 
 /* ---- CTA ---- */
 .portfolio__cta { text-align: center; }
@@ -247,7 +244,7 @@
   bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Geist Sans', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   font-size: 0.8rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;
