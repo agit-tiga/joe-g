@@ -169,23 +169,20 @@
   gap: 0.6rem;
   font-family: 'Jost', system-ui, sans-serif;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   padding: 0.65rem 1.6rem;
-  color: var(--gold-pale);
-  background: transparent;
-  border-top: 1px solid rgba(201, 168, 64, 0.50);
-  border-bottom: 1px solid rgba(201, 168, 64, 0.50);
-  border-left: none;
-  border-right: none;
-  border-radius: 0;
+  color: #0A0A0A;
+  background: linear-gradient(45deg, #f6e27a, #d4af37, #b8860b);
+  border: none;
+  border-radius: var(--r-sm);
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
   transition:
-    color var(--dur-mid) var(--ease-base),
-    border-color var(--dur-mid) var(--ease-base);
+    background var(--dur-mid) var(--ease-base),
+    transform var(--dur-fast) var(--ease-out);
 }
 
 /* Subtle metallic sheen overlay */
@@ -227,9 +224,8 @@
 }
 
 .nav__cta:hover {
-  color: var(--gold-light);
-  border-top-color: rgba(201, 168, 64, 0.80);
-  border-bottom-color: rgba(201, 168, 64, 0.80);
+  background: linear-gradient(45deg, #faeea0, #dfc050, #c09020);
+  transform: translateY(-2px);
 }
 
 .nav__cta:hover::before {
@@ -284,7 +280,6 @@
   font-family: 'Jost', system-ui, sans-serif !important;
   font-weight: 500 !important;
   border: 1px solid var(--border-gold);
-  border-bottom: none;
   padding: 0.65rem 1.75rem;
   border-radius: var(--r-sm);
 }

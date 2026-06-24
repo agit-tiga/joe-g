@@ -83,15 +83,22 @@
 
   .nav__links.open li a.active { color: var(--gold); }
 
-  .nav__links.open .nav__mobile-cta {
+  .nav__links.open li.nav__mobile-cta {
     display: flex !important;
     justify-content: center;
     margin-top: 1.5rem;
-    border: none;
+    border-top: none;
+    border-bottom: none;
   }
   .nav__links.open .nav__mobile-cta a {
     text-align: center;
     width: auto;
+    background: linear-gradient(45deg, #f6e27a, #d4af37, #b8860b) !important;
+    color: #0A0A0A !important;
+    border: none !important;
+    padding: 0.875rem 2rem !important;
+    border-radius: var(--r-sm) !important;
+    font-weight: 500 !important;
   }
 
   /* Hero tablet / mobile — Split-Layout aufheben */
@@ -163,9 +170,11 @@
     margin-right: 0;
     height: 65vh;
     min-height: 380px;
-    background: rgba(10,10,10,0.25);
-    mask-image: none;
-    -webkit-mask-image: none;
+    background: rgba(10,10,10,0.45);
+    mask-image:
+      linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
   }
 
 
