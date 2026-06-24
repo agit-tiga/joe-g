@@ -50,8 +50,8 @@ if (!empty($errors)) {
 /* ── Build email ── */
 $boundary = '----=_Part_' . md5(uniqid(microtime(), true));
 
-$headers  = "From: {$name} <{$email}>\r\n";
-$headers .= "Reply-To: {$email}\r\n";
+$headers  = "From: Joe Guaraglia Website <noreply@joegtattoo.com>\r\n";
+$headers .= "Reply-To: {$name} <{$email}>\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: multipart/mixed; boundary=\"{$boundary}\"\r\n";
 
