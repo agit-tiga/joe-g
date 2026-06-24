@@ -1,19 +1,19 @@
 'use strict';
 
-/* ── file upload with drag & drop ── */
+/* ── File upload with drag & drop ── */
 const fileInput   = document.getElementById('reference');
 const previewWrap = document.getElementById('filePreviews');
 const uploadArea  = document.getElementById('uploadArea');
 
-if (fileInput && previewWrap && uploadArea) {
-  let files = [];
+let selectedFiles = [];
 
+if (fileInput && previewWrap && uploadArea) {
   const addFiles = (newFiles) => {
     Array.from(newFiles).forEach(file => {
       if (!file.type.startsWith('image/')) return;
       if (file.size > 10 * 1024 * 1024) return;
 
-      files.push(file);
+      selectedFiles.push(file);
 
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -31,7 +31,7 @@ if (fileInput && previewWrap && uploadArea) {
         removeBtn.setAttribute('aria-label', `Remove ${file.name}`);
         removeBtn.textContent = '×';
         removeBtn.addEventListener('click', () => {
-          files = files.filter(f => f !== file);
+          selectedFiles = selectedFiles.filter(f => f !== file);
           item.remove();
         });
 
@@ -70,11 +70,10 @@ if (fileInput && previewWrap && uploadArea) {
   });
 }
 
-/* ── contact form validation & submit ── */
+/* ── Contact form validation & submit ── */
 const contactForm = document.getElementById('contactForm');
 const submitBtn   = document.getElementById('submitBtn');
 const formSuccess = document.getElementById('formSuccess');
-const previewWrapRef = document.getElementById('filePreviews');
 
 if (contactForm) {
   const validateField = (input) => {
@@ -99,7 +98,7 @@ if (contactForm) {
     });
   });
 
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     let valid = true;
@@ -119,11 +118,30 @@ if (contactForm) {
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
+    const formData = new FormData();
+    formData.append('name',  contactForm.querySelector('[name="name"]').value);
+    formData.append('email', contactForm.querySelector('[name="email"]').value);
+    formData.append('phone', contactForm.querySelector('[name="phone"]')?.value || '');
+    formData.append('idea',  contactForm.querySelector('[name="idea"]')?.value || '');
+
+    selectedFiles.forEach(file => formData.append('files[]', file));
+
+    try {
+      const res = await fetch('api/contact.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Server error');
+      }
+
       submitBtn.style.display = 'none';
       formSuccess.hidden = false;
       contactForm.reset();
-      if (previewWrapRef) previewWrapRef.innerHTML = '';
+      selectedFiles = [];
+      if (previewWrap) previewWrap.innerHTML = '';
 
       setTimeout(() => {
         submitBtn.style.display = '';
@@ -131,6 +149,10 @@ if (contactForm) {
         submitBtn.disabled = false;
         formSuccess.hidden = true;
       }, 6000);
-    }, 1400);
+    } catch (err) {
+      submitBtn.textContent = 'Error — please try again';
+      submitBtn.disabled = false;
+      setTimeout(() => { submitBtn.textContent = originalText; }, 4000);
+    }
   });
 }
