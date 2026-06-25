@@ -48,6 +48,8 @@
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   transition: border-color var(--dur-fast), background var(--dur-fast);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .contact__info-item:hover {
@@ -63,23 +65,27 @@
 
 .contact__info-item > div { min-width: 0; }
 
-.contact__info-item span {
+.contact__info-item > div > span:first-child {
   display: block;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--text-muted);
   margin-bottom: 0.3rem;
 }
 
-.contact__info-item a,
-.contact__info-item p {
+.contact__info-item > div > span:last-child {
+  display: block;
   font-size: 0.92rem;
   color: var(--text);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.contact__info-item:first-child > div > span:last-child {
+  font-size: 1.05rem;
 }
 
 .contact__info-item a:hover { color: var(--gold); }

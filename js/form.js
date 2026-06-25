@@ -91,7 +91,7 @@ if (contactForm) {
     return !msg;
   };
 
-  contactForm.querySelectorAll('input[required], input[type="email"]').forEach(input => {
+  contactForm.querySelectorAll('input[required], textarea[required], input[type="email"]').forEach(input => {
     input.addEventListener('blur', () => validateField(input));
     input.addEventListener('input', () => {
       if (input.classList.contains('invalid')) validateField(input);
@@ -102,7 +102,7 @@ if (contactForm) {
     e.preventDefault();
 
     let valid = true;
-    contactForm.querySelectorAll('input[required]').forEach(input => {
+    contactForm.querySelectorAll('input[required], textarea[required]').forEach(input => {
       if (!validateField(input)) valid = false;
     });
     const emailInput = contactForm.querySelector('input[type="email"]');

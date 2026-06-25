@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 /* ── Configuration ── */
-$recipientEmail = 'agit.ba@gmail.com';
+$recipientEmail = 'info@joegtattoo.com';
 $recipientName  = 'Joe Guaraglia';
-$subjectPrefix  = '[Website Anfrage]';
+$subjectPrefix  = '[Website Tattoo Request]';
 $maxFileSize    = 10 * 1024 * 1024; // 10 MB
 $allowedTypes   = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
 
